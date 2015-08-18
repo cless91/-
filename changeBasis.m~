@@ -42,9 +42,12 @@ arrayfun(@(x,y)set(x,'linewidth',y), [eH.body; eH.wing(:)],repmat([lineWidth lin
 arrayfun(@(x,y)set(x,'linewidth',y), [eH_.body; eH_.wing(:)],repmat([lineWidth lineWidth lineWidth]',2,1));
 
 %plots the points
-v1 = [-3, -2];
-plot(v1(1),v1(2), "bo", "linewidth", 2);
+v1 = [4 3];
+lineWidth = 1.5;
+ev1 = drawArrow([zeros(1,2), v1],arrowHeadSize, arrowHeadSize);
+arrayfun(@(x,y)set(x,'color',y), [ev1.body; ev1.wing(:)],repmat(['kkk' ]',1,1));
+arrayfun(@(x,y)set(x,'linewidth',y), [ev1.body; ev1.wing(:)],repmat([lineWidth lineWidth lineWidth]',1,1));
 
-v2 = [4, 3];
-plot(v2(1),v2(2), "bo", "linewidth", 2);
+%v2 = [4, 3];
+%plot(v2(1),v2(2), "bo", "linewidth", 2);
 
