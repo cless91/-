@@ -1,0 +1,15 @@
+ # Orthogonal projection respect to vector b
+ dim = 2;
+ b   = 2*rand(dim,1);
+ P   = eye(dim) - (b*b')/(b'*b);
+ v   = 2*rand(dim,1)-1;
+ Pv  = P*v;
+
+ # Draw the vectors
+ clf;
+ h = drawArrow ([zeros(3,dim) [b'; v'; Pv']],1,0.1);
+
+ # Color them
+ arrayfun(@(x,y)set(x,'color',y), [h.body; h.wing(:)],repmat(['rgb']',3,1));
+ # Name them
+ legend (h.body, {'b','v','Pv'},'location','northoutside','orientation','horizontal');

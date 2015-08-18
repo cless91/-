@@ -1,0 +1,19 @@
+clear all;
+close all;
+
+%canonical base
+ecan1 = [1 ; 0];
+ecan2 = [0 ; 1];
+
+%origin base
+e1 = [2 ; 0];
+e2 = [0 ; 2];
+
+%destination base
+e1_ = [3 ; 1];
+e2_ = [-2 ; 1];
+
+hold on;
+plot(-3, -2, "+b");
+axis([-5 5 -5 5]);
+
