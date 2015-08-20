@@ -2,12 +2,12 @@ clear all;
 close all;
 pkg load geometry;
 
-xmin = -2.1;
-xmax = 3.1;
-ymin = -1.75;
-ymax = 3.5;
+xmin = -3;
+xmax = 7;
+ymin = -2;
+ymax = 4;
 
-arrowHeadSize = 0.15;
+arrowHeadSize = 0.3;
 
 %canonical base
 ecan1 = [1 ; 0];
@@ -59,13 +59,30 @@ lineWidth = 2;
 
 %plotting projections/components
 %e1 on e1_
-plotComponent(e1, e2_, e1_, ":", 2, [0.5 0.5 0.5]);
+%plotComponent(e1, e2_, e1_, ":", 2, [0.5 0.5 0.5]);
 %e1 on e2_
-plotComponent(e1, -e1_, -e2_, ":", 2, [0.5 0.5 0.5]);
+%plotComponent(e1, -e1_, -e2_, ":", 2, [0.5 0.5 0.5]);
 %e2 on e1_
-plotComponent(e2, -e2_, e1_, ":", 2, [0.5 0.5 0.5]);
+%plotComponent(e2, -e2_, e1_, ":", 2, [0.5 0.5 0.5]);
 %e2 on e2_
-plotComponent(e2, -e1_, e2_, ":", 2, [0.5 0.5 0.5]);
+%plotComponent(e2, -e1_, e2_, ":", 2, [0.5 0.5 0.5]);
+
+%components of origin basis vector in destination basis
+line1 = createLine(e1(1), e1(2), e2_(1), e2_(2));
+line2 = createLine(0, 0, e1_(1), e1_(2));
+x11 = intersectLines(line1, line2);
+
+line1 = createLine(e1(1), e1(2), -e1_(1), -e1_(2));
+line2 = createLine(0, 0, -e2_(1), -e2_(2));
+x21 = intersectLines(line1, line2);
+
+line1 = createLine(e2(1), e2(2), -e2_(1), -e2_(2));
+line2 = createLine(0, 0, e1_(1), e1_(2));
+x12 = intersectLines(line1, line2);
+
+line1 = createLine(e2(1), e2(2), -e1_(1), -e1_(2));
+line2 = createLine(0, 0, e2_(1), e2_(2));
+x22 = intersectLines(line1, line2);
 
 saveas (1, "/media/joseph/5793-02B3/backup/TODOリスト/５＿プロジェクトリスト。プロジェクト参考情報/主成分分析/トランク/英語版/数学的/基準変換/例/figure19.png");
 
