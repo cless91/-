@@ -68,21 +68,10 @@ lineWidth = 2;
 %plotComponent(e2, -e1_, e2_, ":", 2, [0.5 0.5 0.5]);
 
 %components of origin basis vector in destination basis
-line1 = createLine(e1(1), e1(2), e2_(1), e2_(2));
-line2 = createLine(0, 0, e1_(1), e1_(2));
-x11 = intersectLines(line1, line2);
-
-line1 = createLine(e1(1), e1(2), -e1_(1), -e1_(2));
-line2 = createLine(0, 0, -e2_(1), -e2_(2));
-x21 = intersectLines(line1, line2);
-
-line1 = createLine(e2(1), e2(2), -e2_(1), -e2_(2));
-line2 = createLine(0, 0, e1_(1), e1_(2));
-x12 = intersectLines(line1, line2);
-
-line1 = createLine(e2(1), e2(2), -e1_(1), -e1_(2));
-line2 = createLine(0, 0, e2_(1), e2_(2));
-x22 = intersectLines(line1, line2);
+x11 = intersectLines(createLine(e1(1), e1(2), e2_(1), e2_(2)), createLine(0, 0, e1_(1), e1_(2)));
+x21 = intersectLines(createLine(e1(1), e1(2), -e1_(1), -e1_(2)), createLine(0, 0, -e2_(1), -e2_(2)));
+x12 = intersectLines(createLine(e2(1), e2(2), -e2_(1), -e2_(2)), createLine(0, 0, e1_(1), e1_(2)));
+x22 = intersectLines(createLine(e2(1), e2(2), -e1_(1), -e1_(2)), createLine(0, 0, e2_(1), e2_(2)));
 
 saveas (1, "/media/joseph/5793-02B3/backup/TODOリスト/５＿プロジェクトリスト。プロジェクト参考情報/主成分分析/トランク/英語版/数学的/基準変換/例/figure19.png");
 
